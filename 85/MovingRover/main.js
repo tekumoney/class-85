@@ -1,35 +1,37 @@
 canvas = document.getElementById('my_canvas');
-ctx = canvas.getContext("2d");
-rover_width = 100;
-rover_height = 90;
-
-background_image = "mars.jpg";
-rover_image = "rover.png";
-
-roverX=10
-roverY=10
-
-function add(){
-    background_imgtag=newImage();
-    background_imgtag.onload=uploadbackground;
-    background_imgtag.src=background_image();
-    rover_img=newImage();
-    rover_imgtag.onload=uploadrover;
-    rover_imgtag.src=rover_image;
+ctx=canvas.getContext("2d");
+nasa_mars_images_array=["FRB_486265257EDR_F0481570FHAZ00323M_.jpg", "why.jpg", "mars.jpg"];
+randomnumber=Math.floor(Math.random()*4);
+console.log(randomnumber);
+roverheight=90;
+roverwidth=100;
+backgroundImg="mars_Image"("randomnumber");
+console.log(backgroundImg=""+backgroundImg);
+roverImg="rover_Image"(randomnumber);
+console.log(roverImg=""+randomImg);
+roverX=10;
+roverY=10;
+function add()
+{
+    backgroundImgtag=newimage();
+    backgroundImgtag.onload=uploadbackground;
+    backgroundImgtag.src=backgroundImg
+    roverImgtag=newimage();
+    roverImgtag.onload=uploadrover;
+    roverImgtag.src=roverImg
 }
 function uploadbackground()
 {
-    ctx.drawimage(background_imgtag, 0, 0, canvas.width, canvas.height);
+    ctx.drawimage(backgroundImgtag, 0, 0, canvaswidth, canvasheight);
 }
 function uploadrover()
 {
-    ctx.drawimage(rover_imgtag, roverX, roverY, rover_width, rover_height);
-    window.addEventListener("keydown", my_keydown);
-
+    ctx.drawimage(roverImgtag, roverX, roverY, roverwidth, roverheight);
 }
+window.addEventListener("keydown", my_keydown);
 function my_keydown(e)
 {
-    keypressed=e.keyCode;
+    keypressed=e.keycode;
     console.log(keypressed);
     if(keypressed=='38')
     {
@@ -54,38 +56,41 @@ function my_keydown(e)
 }
 function up()
 {
-  if(roverY>=0)
-  {
-      roverY=roverY-10;
-      console.log("when up arrow is pressed ", x= "+roverX+" y= "+roverY+");
-      uploadbackground();
-      uploadrover();
-  }
+    if(roverY>=0)
+    {
+        roverY=roverY-10;
+        console.log("when up arrow is pressed", x="+roverx+", y="+rovery+");
+        uploadbackground();
+        uploadrover();
+    }
 }
-function down(){
+function down()
+{
     if(roverY<=500)
-  {
-      roverY= roverY+10;
-      console.log("when down arrow is pressed ", x= "+roverX+" y= "+roverY+");
-      uploadbackground();
-      uploadrover();
-  }
+    {
+        roverY=roverY+10;
+        console.log("when up arrow is pressed", x="+roverx+", y="+rovery+");
+        uploadbackground();
+        uploadrover();
+    }
 }
-function left(){
+function left()
+{
     if(roverX>=0)
-  {
-      roverY= roverX-10;
-      console.log("when left arrow is pressed ", x= "+roverX+" y= "+roverY+");
-      uploadbackground();
-      uploadrover();
-  }
+    {
+        roverX=roverX-10;
+        console.log("when up arrow is pressed", x="+roverx+", y="+rovery+");
+        uploadbackground();
+        uploadrover();
+    }
 }
-function right(){
+function right()
+{
     if(roverX<=700)
-  {
-      roverY= roverX+10;
-      console.log("when right arrow is pressed ", x= "+roverX+" y= "+roverY+");
-      uploadbackground();
-      uploadrover();
-  }
+    {
+        roverX=roverX+10;
+        console.log("when up arrow is pressed", x="+roverx+", y="+rovery+");
+        uploadbackground();
+        uploadrover();
+    }
 }
